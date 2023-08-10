@@ -58,6 +58,7 @@
 | Column           | Type    | Options     |
 | ---------------- | ------- | ----------- |
 | post_code        | integer | null: false |
+| prefectures_id   | integer | null: false |
 | city             | string  | null: false |
 | address          | string  | null: false |
 | build_name       | string  |             |
