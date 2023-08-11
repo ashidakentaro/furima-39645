@@ -11,7 +11,7 @@
 | first_name         | string   | null: false               |
 | family_name_kana   | string   | null: false               |
 | first_name_kana    | string   | null: false               |
-| birthday_id        | datetime | null: false               |
+| birthday           | date     | null: false               |
 
 ### Association
 
@@ -29,7 +29,7 @@
 | category_id    | integer    | null: false                    |
 | condition_id   | integer    | null: false                    |
 | charge_id      | integer    | null: false                    |
-| prefectures_id | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | leadtime_id    | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
@@ -37,7 +37,7 @@
 
 - belongs_to :user
 - has_one_attached :image
-- has_one :histories
+- has_one :history
 
 ## histories テーブル
 
@@ -50,14 +50,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :deliveries
+- has_one :delivery
 
 ## deliveries テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| prefectures_id   | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
 | build_name       | string     |                                |
