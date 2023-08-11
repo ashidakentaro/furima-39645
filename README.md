@@ -50,7 +50,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :delivery
+- has_one :deliveries
 
 ## deliveries テーブル
 
@@ -67,4 +67,4 @@
 
 ### Association
 
-- has_one :histories
+- belongs_to :history
