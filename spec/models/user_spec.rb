@@ -94,9 +94,6 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "Family name kana can't be blank"
       end
       it 'family_name_kanaにカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        @user.family_name_kana = 'あナマエ'
-        @user.family_name_kana = '亜ナマエ'
-        @user.family_name_kana = '１ナマエ'
         @user.family_name_kana = '！ナマエ'
         @user.valid?
         expect(@user.errors.full_messages).to include "Family name kana is invalid. Input full-width katakana characters"
@@ -107,9 +104,6 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "First name kana can't be blank"
       end
       it 'first_name_kanaにカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        @user.first_name_kana = 'あナマエ'
-        @user.first_name_kana = '亜ナマエ'
-        @user.first_name_kana = '１ナマエ'
         @user.first_name_kana = '！ナマエ'
         @user.valid?
         expect(@user.errors.full_messages).to include "First name kana is invalid. Input full-width katakana characters"
