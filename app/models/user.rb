@@ -20,4 +20,3 @@ class User < ApplicationRecord
     validates :first_name_kana, presence: true
   end
 end
-
