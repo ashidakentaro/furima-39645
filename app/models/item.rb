@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   validates :title, presence: true
   validates :explanation, presence: true
   validates :price, presence: true,
-                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
+                    numericality: { only_integer: true,
+                                    greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                                     message: "is out of setting range" },
                     format: { with: /\A\d+\z/, message: "Price is out of setting range" }
 
@@ -15,7 +16,6 @@ class Item < ApplicationRecord
   
   belongs_to :user
   has_one_attached :image
-  has_one :delivery, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -23,7 +23,4 @@ class Item < ApplicationRecord
   belongs_to :charge
   belongs_to :prefecture
   belongs_to :leadtime
-
-  def sold_out?
-  end
 end
