@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
@@ -14,7 +13,6 @@ class ItemsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-end
 
 private
 
@@ -29,3 +27,4 @@ private
   def contributor_confirmation
     redirect_to root_path unless current_user == @item.user
   end
+end
