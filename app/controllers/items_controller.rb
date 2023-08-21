@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_prototype, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
-
-  def index
-    @items = Item.includes(:user)
-  end
 
   def new
     @item = Item.new
