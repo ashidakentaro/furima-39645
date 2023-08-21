@@ -23,4 +23,7 @@ class Item < ApplicationRecord
   belongs_to :charge
   belongs_to :prefecture
   belongs_to :leadtime
+
+  def sold_out?
+  end
 end
